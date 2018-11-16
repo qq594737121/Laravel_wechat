@@ -129,13 +129,7 @@ class GroupController extends AdminController
         AdminGroup::where("id",$id)->update($param);
         return redirect('admin/Group/index');
     }
-    /**
-     *@param删除
-     */
-    public function destroy($id){
-        $this->user_model->deleteById($id);
-        redirect('admin/User/index');die;
-    }
+
     /*
      * @param查看成员
      * */
