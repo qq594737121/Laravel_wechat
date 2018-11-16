@@ -1,0 +1,4 @@
+2018-01-23 17:52:37 > DEBUG > Pre Order: ["pay/unifiedorder",{"appid":"wx8e71095e834624c4","mch_id":"1221718201","nonce_str":"mOcjQhc6h34iioY8","notify_url":"http://www.giftcard.com/order/pay/notify","sign":"7AB8757751C9CE71E3AAE23B44170410","trade_type":"JSAPI","spbill_create_ip":"169.254.90.61","out_trade_no":"e2","total_fee":"0.01","body":"test body","openid":"onkVf1FjWS5SBIihS-123456_abc"}] []
+
+2018-01-23 17:52:37 > DEBUG > Request To Wechat Api ["https://api.mch.weixin.qq.com/sandboxnew/pay/unifiedorder",{"appid":"wx8e71095e834624c4","mch_id":"1221718201","nonce_str":"mOcjQhc6h34iioY8","notify_url":"http://www.giftcard.com/order/pay/notify","sign":"7AB8757751C9CE71E3AAE23B44170410","trade_type":"JSAPI","spbill_create_ip":"169.254.90.61","out_trade_no":"e2","total_fee":"0.01","body":"test body","openid":"onkVf1FjWS5SBIihS-123456_abc"}] []
+

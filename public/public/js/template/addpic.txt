@@ -1,0 +1,74 @@
+{{if tType=="addPic"}}
+
+    {{if pic}}
+    <a href="javascript:;"> 
+    	<img src="/{{pic}}" alt="">
+    </a> 
+    {{else}}    
+    <div class="upPic" i-click="uploadPic" style="background-image:url({{baseUrl}}add_pic.jpg);">      
+    </div>
+    {{/if}}
+    <div class="i-theme" {{if showTheme}}style="display:block"{{/if}}>
+        <img src="{{baseUrl}}m-logo.png" alt="" class="m-logo">
+        <div class="i-theme1" {{if theme=="1"}}style="display:block"{{/if}}>                        
+            <img src="{{baseUrl}}theme_11.png" alt="" class="t11">                   
+            <img src="{{baseUrl}}theme_12.png" alt="" class="t12">                   
+            <img src="{{baseUrl}}theme_13.png" alt="" class="t13">                   
+            <img src="{{baseUrl}}theme_14.png" alt="" class="t14">
+        </div>
+        <div class="i-theme2" {{if theme=="2"}}style="display:block"{{/if}}>                     
+            <img src="{{baseUrl}}theme_21.png" alt="" class="t21">                   
+            <img src="{{baseUrl}}theme_22.png" alt="" class="t22">                   
+            <img src="{{baseUrl}}theme_23.png" alt="" class="t23">
+        </div>
+        <div class="i-theme3" {{if theme=="3"}}style="display:block"{{/if}}>                  
+            <img src="{{baseUrl}}theme_31.png" alt="" class="t31">                   
+            <img src="{{baseUrl}}theme_32.png" alt="" class="t32">                   
+            <img src="{{baseUrl}}theme_33.png" alt="" class="t33">
+        </div>
+    </div>   
+{{/if}}
+{{if tType=="choosePic"}}
+	<i class="arrow"></i>
+    <p class="title">点击选择相框</p>
+    <ul class="ui-tiled theme">
+        <li i-click="theme,1"><img src="{{baseUrl}}theme_1.png" alt=""></li>
+        <li i-click="theme,2"><img src="{{baseUrl}}theme_2.png" alt=""></li>
+        <li i-click="theme,3"><img src="{{baseUrl}}theme_3.png" alt=""></li>
+    </ul>   
+    <div class="ui-form-item"> 
+    	<input type="hidden" name="media_id" value="{{media_id}}">
+    	<input type="hidden" name="xk_id" value="{{xk_id}}">
+    	<input type="hidden" name="isPost" value="{{isPost}}">
+    	<input type="hidden" name="is_wall" value="1">
+        <input type="text" placeholder="用户ID" class="ui-border-radius disabled" disabled="disabled" value="{{username}}" name="name"> 
+        <textarea placeholder="请输入你想说的话..." class="ui-border-radius" name="description"></textarea>
+        <a href="javascript:;" i-click="continue" class="ui-btn p-btn">继续</a>
+    </div>      
+{{/if}}  
+{{if tType=="submitPic"}}          
+	<div class="ui-form-item ui-form-item-show">
+        <span class="ui-txt-info">{{username}}</span>
+        {{if share}}
+        <div class="ui-txt-info great"><div style="z-index:999;" s-click="star,{{id}}"><img src="{{baseUrl}}great{{if has_vote=="1"}}_on{{/if}}.png" alt=""></div><div class="sn">{{number}}</div></div>
+        {{/if}}
+    </div>
+    <div class="ui-form-item ui-form-item-show ui-border-b lh-line">
+        <p class="h39">想说的话</p>
+        <span class="ui-txt-info">{{words}}</span>        
+    </div> 
+    {{if share}}
+    <a href="javascript:;" s-click="shareit" class="ui-btn p-btn p-btn-md mg-top35">分享至朋友圈</a>
+    {{else}}
+    <div class="btn-list">
+        <a href="javascript:;" i-click="printPost" class="ui-btn p-btn p-btn-sm">现场打印</a>
+        <a href="javascript:;" i-click="postPost" class="ui-btn p-btn p-btn-sm">邮寄照片</a>
+        <p class="agree"> 
+            <label class="ui-checkbox-s" for="is_wallc">
+                <input type="checkbox" name="is_wallc" checked i-click="check_wall">
+                上传至明星墙
+            </label>
+        </p>
+    </div>
+    {{/if}}
+{{/if}}                

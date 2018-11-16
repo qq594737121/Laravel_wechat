@@ -1,0 +1,10 @@
+/node_modules
+/public/storage
+/storage/*.key
+/vendor
+/config
+/.idea
+Homestead.json
+Homestead.yaml
+.env
+storage/framework/sessions/kzbeNZ9rUsGTcuZ9pidMoW2V01KOst7avlD78TOz

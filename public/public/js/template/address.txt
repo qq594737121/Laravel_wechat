@@ -1,0 +1,25 @@
+<form class="search_form" action="{{postUrl}}" callback="formCallback">
+<div class="ui-form-item"> 
+    <input type="hidden" name="id" value="{{orderid}}">
+    <input type="text" name="name" placeholder="收件人姓名" class="ui-border-radius"> 
+    <input type="text" name="mobile" placeholder="手机号码" class="ui-border-radius"> 
+    <div class="ui-select-group">
+        <div class="ui-select">
+            <select class="ui-border-radius" name="province"> 
+                <option selected>上海市</option> 
+            </select>
+        </div> 
+        <div class="ui-select">
+            <select class="ui-border-radius" name="city">
+                {{each list as v i}}
+                <option value="{{v}}" {{if i==0}}selected{{/if}}>{{v}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    <input type="text" name="address" placeholder="详细地址" class="ui-border-radius"> 
+    <h5 class="ui-txt-info lh-info">如：斜土路2899号1003</h5>                
+    <input type="text" name="postcode" placeholder="邮政编码" class="ui-border-radius"> 
+    <a class="ui-btn ui-btn-lg bg-green" i-click="formPost">确定</a>
+</div>
+</form>

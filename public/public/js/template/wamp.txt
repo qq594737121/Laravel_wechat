@@ -1,0 +1,5 @@
+<img src="{{baseUrl}}main.png" alt="">
+<a href="javascript:;" i-click="showRules" class="rules"></a>
+<a href="{{addPic}}" class="main-1"></a>
+<a href="{{showPic}}" class="main-2"></a>
+<a href="javascript:;" i-click="showPic" class="main-3"></a>

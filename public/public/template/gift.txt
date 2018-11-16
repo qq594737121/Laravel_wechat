@@ -1,0 +1,120 @@
+
+{{if showTable_gift}}
+  <thead>
+    <tr>
+    {{each data.title as j i}}
+      <th>{{j}}</th>
+    {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{each data.text as j i}}
+      <tr id="tr{{i}}" value="{{j.id}}">
+        {{if j.goods_name}} <td class="goods_name">{{j.goods_name}}</td>{{else}}<td>-</td> {{/if}}
+        {{if j.stock}} <td class="stock">{{j.stock}}</td>{{else}}<td>-</td> {{/if}}
+        {{if j.stock_surplus}} <td class="stock_surplus">{{j.stock_surplus}}</td>{{else}}<td>-</td> {{/if}}
+
+        <td>
+         <input type="hidden" class="goods_type" value="{{j.goods_type}}">
+         <span {{if j.goods_type == "2"}}style="display: block"{{else}} style="display: none" {{/if}}>实物</span>
+         <span {{if j.goods_type == "1"}}style="display: block"{{else}} style="display: none" {{/if}}>积分</span>
+        </td>
+
+        {{if j.goods_point}} <td class="goods_point">{{j.goods_point}}</td>{{else}}<td>-</td> {{/if}}
+
+        <td>
+          {{if j.checkbox}}
+            <input type="checkbox" value="{{j.id}}" data-type="{{j.id}}" change="choosePro" name="ck_list" checked>
+          {{else}}
+            <input type="checkbox" value="{{j.id}}" data-type="{{j.id}}" change="choosePro" name='ck_list'>
+          {{/if}}  
+        </td> 
+      </tr>
+    {{/each}}
+  </tbody>
+{{/if}}
+
+{{if showTable_no_gift}}
+  <thead>
+    <tr>
+    {{each data.title as j i}}
+      <th>{{j}}</th>
+    {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+      <tr>
+        <td colspan="9">
+            暂无数据...
+        </td>
+      </tr>
+  </tbody>
+{{/if}}
+
+{{if pageTable}}
+  <!-- 页面表格 -->
+  <thead>
+    <tr>
+    {{each data.title as j i}}
+      <th>{{j}}</th>
+    {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+    {{each data.text as j i}}
+    <tr id="tr{{i}}" value="{{j.goods_id}}">
+      {{if j.goods_name}} <td class="goods_name">{{j.goods_name}}</td>{{else}}<td>-</td> {{/if}}
+<!--       {{if j.stock}} <td class="stock">{{j.stock}}</td>{{else}}<td>-</td> {{/if}}
+      {{if j.stock_surplus}} <td class="stock_surplus">{{j.stock_surplus}}</td>{{else}}<td>-</td> {{/if}} -->
+
+      <td data-type="{{goods_type}}">
+       <input type="hidden" class="goods_type" value="{{j.goods_type}}">
+       <span {{if j.goods_type == "2"}}style="display: block"{{else}} style="display: none" {{/if}}>实物</span>
+       <span {{if j.goods_type == "1"}}style="display: block"{{else}} style="display: none" {{/if}}>积分</span>
+      </td>
+
+      {{if j.goods_point}} <td class="goods_point">{{j.goods_point}}</td>{{else}}<td>-</td> {{/if}}
+      
+      <td>
+        <input type="number" class="numberInp prizechange" value="{{j.prizechange}}">
+      </td>
+      <td>
+        <input type="number" class="numberInp angle" value="{{j.angle}}">
+      </td>
+      <td>
+        <input type="number" class="numberInp sort" value="{{j.sorts}}">
+      </td>
+      <td>
+          <input type="hidden" class="prize_id" value="{{j.goods_id}}">
+          <button type="button" class="btn btn-xs red" click="delCoupon,{{j.goods_id}}"> 删除</button> 
+      </td> 
+    </tr>
+
+    {{/each}}
+  </tbody>
+{{/if}}
+{{if page}}
+  <div class="pagination">
+      <span {{if data.pn==1}} class="disabled" {{else}} click="prevPage" {{/if}}>上一页
+      </span>
+      <span class="current1">
+        <input type="number" class="pageInput" min="0" value="{{data.pn}}">
+      </span>
+      <span {{if data.pn == data.total_page }} class="disabled" {{else}} click="nextPage" {{/if}} >下一页</span>
+      <span class="go" click="goPage">GO</span>
+  </div>
+  <div class="pageNum">
+    <span style="margin-left:20px;">共</span>
+    <span class="total_page">{{data.total_page}}</span>
+    <span>页</span>
+    <span>{{data.total_list}}</span>
+    <span>条</span>
+  </div>
+{{/if}}
+
+{{if caiPin}}
+  {{each data as j i}}
+  <input type="text"  value="{{j}}" class="form-control needEle ycai" data-names="壹席菜单菜品">
+  {{/each}}
+{{/if}}
+

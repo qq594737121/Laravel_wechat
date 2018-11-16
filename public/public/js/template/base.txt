@@ -1,0 +1,90 @@
+{{if Ttype == "menu"}}
+<!--左侧菜单-->
+<section class="sidebar">
+    <ul class="sidebar-menu">
+        {{each menu.dataList as value i}}
+            {{if value.list.length == 0}}
+                <li class="{{ menu.active[0]==value.id?active='active':active=''}}" name="tracking">
+                    <a href="{{value.url}}">
+                        <i class="{{value.icon}}"></i> 
+                        <span>{{value.title}}</span>
+                    </a>
+                </li>
+            {{else}}
+                <li class="treeview {{menu.active[0]==value.id?active='active':active=''}}">
+                    <a href="javascript:;" m-click="toggleNav">
+                        <i class="{{value.icon}}"></i> 
+                        <span>{{value.title}}</span>
+                    </a>
+                    <ul class="treeview-menu" style="display:{{if menu.active[0]==value.id}}block{{else}}none{{/if}}">
+                        {{each value.list as l m}}
+                            <li class="{{(menu.active[0]==value.id && menu.active[1] == l.id)?active:''}}"><a href="{{l.url}}" style="margin-left: 40px;"> {{l.title}}</a></li>
+                        {{/each}}
+                    </ul>
+                </li>
+            {{/if}}   
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+{{if Ttype == "header"}}
+<!-- Logo -->
+<a href="javascript:;" class="logo">
+  <!-- mini logo for sidebar mini 50x50 pixels -->
+  <span class="logo-mini"><img src="../../img/main-logo_03.jpg" alt="logo"></span>
+  <!-- logo for regular state and mobile devices -->
+  <span class="logo-lg"><img src="../../img/main-logo.png" alt="logo"></span>
+</a>
+<!-- Header Navbar: style can be found in header.less -->
+<nav class="navbar navbar-static-top">
+  <!-- Sidebar toggle button-->
+  <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </a>
+
+  <!-- 用户设置 -->
+  <div class="navbar-custom-menu">
+    <ul class="nav navbar-nav">
+        <li class="dropdown reg-menu">
+            <a href="javascript:;" class="dropdown-toggle">
+              <span class="hidden-xs">机构：四川水井坊股份有限公司</span>
+            </a>
+        </li>
+        <li class="dropdown user user-menu">
+            <a href="javascript:;" class="dropdown-toggle">
+              <i class="fa fa-user"></i>
+              <span class="hidden-xs">{{data.username}}</span>
+            </a>
+        </li>
+      <li class="dropdown logout-menu">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <!-- <img src="../../dist/img/avatar5.png" class="user-image" alt="User Image"> -->
+          <!-- <span class="hidden-xs">{{data.username}}</span> -->
+
+          <span class="hidden-xs">  <i class="fa fa-fw fa-mail-forward"></i>退出</span> 
+
+        </a>
+       <!--  <ul class="dropdown-menu">
+          User image
+          <li class="user-header">
+            <img src="../../dist/img/avatar5.png" class="img-circle" alt="User Image">
+            <p>{{data.username}}</p>
+          </li>
+           Menu Footer
+          <li class="user-footer">
+            <div class="pull-left">
+              <a href="#" class="btn btn-default btn-flat">用户设置</a>
+            </div>
+            <div class="pull-right">
+              <a href="#" class="btn btn-default btn-flat">退出</a>
+            </div>
+          </li>
+        </ul> -->
+      </li>
+    </ul>
+  </div>
+</nav>
+{{/if}}

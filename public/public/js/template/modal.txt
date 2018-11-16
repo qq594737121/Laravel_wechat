@@ -1,0 +1,60 @@
+{{if Ttype == 'alert'}}
+<div class="ui-dialog">
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+            <div>
+            <h4>{{title}}</h4>
+            <div>{{content}}</div></div>
+        </div>
+        <div class="ui-dialog-ft ui-btn-group">
+            <button type="button" data-role="button" m-click="dialogClose" class="select" id="dialogButton{{i}}">关闭</button> 
+        </div>
+    </div>        
+</div>
+{{/if}}
+{{if Ttype == 'confirm'}}
+<div class="ui-dialog">
+    <div class="ui-dialog-cnt">
+        <div class="ui-dialog-bd">
+            <div>
+            <h4>{{title}}</h4>
+            <div>{{content||"test"}}</div>
+            </div>
+        </div>
+        <div class="ui-dialog-ft ui-btn-group">
+            <button type="button" class="select" {{eventFun}}>确认</button> 
+            <button type="button" {{closeFun}}  class="select" id="dialogButton">关闭</button> 
+        </div>
+    </div>        
+</div>
+{{/if}}
+{{if Ttype== "rules"}}
+<div class="ui-dialog main-dialog">
+    <div class="ui-dialog-cnt">
+        <button type="button" data-role="button" class="close"></button> 
+        <div class="ui-dialog-bd"> 
+            <div class="title">活动说明</div>
+            <hr>
+            <div class="content">
+                <p>本互动活动仅限为爱麦跑活动现场人员参与；</p><p>参与者在互动活动中获得麦当劳折扣券的，需凭电子兑换券前ETOCRM展台兑换麦当劳纸质折扣券，然后方可前往麦当劳实体店凭券进行消费抵用；</p><p>参与者在互动活动中获得礼品卡券后，可凭券前往ETOCRM展台兑换相应实物礼品；电子兑换券仅限活动当日现场兑换使用，逾期无效；</p><p>活动最终解释权归齐数科技（上海）有限公司所有。</p>
+            </div>
+        </div> 
+        <div class="ui-dialog-ft"></div>
+    </div>        
+</div>
+{{/if}}
+{{if Ttype== "qrcode"}}
+<div class="ui-dialog main-dialog">
+    <div class="ui-dialog-cnt">
+        <button type="button" data-role="button" class="close"></button> 
+        <div class="ui-dialog-bd" style="width: 220px; margin-left: 22px;"> 
+            <div class="title">群二维码</div>
+            <hr>
+            <div class="content">
+                <img src="{{baseUrl}}{{qrcode}}" style="width: 100%;">
+            </div>
+        </div> 
+        <div class="ui-dialog-ft"></div>
+    </div>        
+</div>
+{{/if}}

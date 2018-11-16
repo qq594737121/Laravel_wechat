@@ -1,0 +1,6 @@
+<i></i>
+<p class="title">{{title}}</p>
+<p>{{content}}</p>
+<div class="ui-notice-btn">
+    <a href="{{link}}" class="ui-btn ui-btn-lg bg-green">确定</a>
+</div>

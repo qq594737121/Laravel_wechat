@@ -1,0 +1,36 @@
+{{if tType== "all"}}
+<div class="ui-logo-title">
+                <div class="ui-avatar-lg">
+                     <img src="{{baseUrl}}logos.png" alt="">
+                </div>
+                <img src="{{baseUrl}}star.png" alt="" class="star">
+            </div>           
+            <ul class="ui-grid-halve star-list" style="padding-bottom: 50px;">
+            {{each list as v i}}
+                <li>
+                    <div class="ui-grid-halve-img ui-squre-img">
+                        <img i-click="goto,{{v.id}}" src="/{{v.src}}" alt="">
+                        <h4>{{v.name}}</h4>
+                        <h5 class="ui-nowrap ui-txt-info">{{v.description}}</h5>
+                        <img class="star" src="{{baseUrl}}great_on.png" alt="">
+                        <!-- i-click="star,{{v.orderid}}" -->
+                        <h5 class="star-txt ui-txt-info">{{v.vote_num}}</h5>
+                    </div>  
+                </li> 
+            {{/each}}
+            </ul>
+{{/if}}
+{{if tType== "li"}}
+{{each list as v i}}
+                <li>
+                    <div class="ui-grid-halve-img ui-squre-img">
+                        <img i-click="goto,{{v.id}}" src="/{{v.src}}" alt="">
+                        <h4>{{v.name}}</h4>
+                        <h5 class="ui-nowrap ui-txt-info">{{v.description}}</h5>
+                        <img class="star" src="{{baseUrl}}great_on.png" alt="">
+                        <!-- i-click="star,{{v.orderid}}" -->
+                        <h5 class="star-txt ui-txt-info">{{v.vote_num}}</h5>
+                    </div>  
+                </li> 
+            {{/each}}
+{{/if}}            
